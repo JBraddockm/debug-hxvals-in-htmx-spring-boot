@@ -1,0 +1,54 @@
+<!--/*@thymesVar id="address" type="debug.address.Address"*/-->
+<th:block th:fragment="address-fields">
+    <div id="address-fields" class="grid grid-cols-6 gap-6 col-span-full sm:col-span-full">
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Building Name</span>
+                <input type="text" name="buildingName" class="grow"
+                       placeholder="Building Name"
+                />
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Address Line 1</span>
+                <input type="text" name="addressLine1" class="grow"
+                       placeholder="Address Line 1"
+                />
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Address Line 2</span>
+                <input type="text" name="addressLine2" class="grow"
+                       placeholder="Address Line 2"/>
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Postcode</span>
+                <input type="text" name="postalCode" class="grow"
+                       placeholder="Postcode"/>
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>City</span>
+                <input type="text" name="city" class="grow"
+                       placeholder="City"/>
+            </label>
+        </div>
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Country</span>
+                <input type="text" name="country" class="grow"
+                       placeholder="Country"/>
+            </label>
+        </div>
+    </div>
+</th:block>
+

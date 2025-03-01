@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main}">
+<body>
+<div layout:fragment="content">
+    <div class="hero bg-base-200 min-h-screen">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <div class="mt-6">
+                    <a class="btn btn-primary" title="Add Activity" th:href="@{/templates/activity/create}">
+                        Add Activity
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script-content">
+</th:block>
+</body>
+</html>

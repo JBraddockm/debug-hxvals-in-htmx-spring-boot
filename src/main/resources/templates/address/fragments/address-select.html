@@ -1,0 +1,51 @@
+<!--/*@thymesVar id="address" type="debug.address.Address"*/-->
+<th:block th:object="${address}" th:fragment="address-select">
+    <div id="address-fields" class="grid grid-cols-6 gap-6 col-span-full sm:col-span-full"
+         hx-on::after-settle="document.getElementById('address-lookup-results').outerHTML = '<template id=\'address-lookup-results\' class=\'dropdown-content menu\'></template>'">
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Building Name</span>
+                <input type="text" name="buildingName" th:field="*{buildingName}" class="grow"
+                       placeholder="Building Name"
+                />
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Address Line 1</span>
+                <input type="text" name="addressLine1" th:field="*{addressLine1}" class="grow"
+                       placeholder="Address Line 1"
+                />
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Address Line 2</span>
+                <input type="text" name="addressLine2" th:field="*{addressLine2}" class="grow"
+                       placeholder="Address Line 2"/>
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Postcode</span>
+                <input type="text" name="postalCode" th:field="*{postalCode}" class="grow" placeholder="Postcode"/>
+            </label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>City</span>
+                <input type="text" name="city" th:field="*{city}" class="grow" placeholder="City"/>
+            </label>
+        </div>
+        <div class="col-span-6 sm:col-span-3">
+            <label class="floating-label w-full input">
+                <span>Country</span>
+                <input type="text" name="country" th:field="*{country}" class="grow" placeholder="Country"/>
+            </label>
+        </div>
+    </div>
+</th:block>

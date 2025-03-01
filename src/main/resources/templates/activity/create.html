@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main}">
+<body>
+<div layout:fragment="content">
+    <div id="forms" class="min-h-screen flex items-center justify-center">
+        <div class="grid grid-cols-1 xl:grid-cols-3 xl:gap-4 space-y-8 p-8 bg-base-200 rounded-lg shadow-md">
+            <div class="col-span-full xl:col-auto mb-8">
+                <h2 class="mt-6 text-center text-3xl font-bold">
+                    Add a new activity
+                </h2>
+            </div>
+
+            <div class="col-span-full">
+
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"
+                     th:if="${param.error}">
+                    <span class="block sm:inline">Errors.</span>
+                </div>
+
+                <!-- Login Form -->
+                <form class="mt-8 space-y-6" th:action="@{/activities/create}" th:object="${activity}"
+                      method="POST">
+                    <div class="grid grid-cols-6 gap-6">
+
+                        <div id="address-lookup" class="grid grid-cols-6 gap-6 col-span-full sm:col-span-full">
+                            <div class="col-span-6 sm:col-span-3">
+                                <div class="dropdown w-full">
+                                    <label tabindex="0" class="input flex items-center gap-2 w-full">
+                                        <input id="address-lookup-search" type="text"
+                                               class="grow focus:outline-none" name="query"
+                                               placeholder="Search address here..."
+                                               autocomplete="off"
+                                               th:hx-get="@{/addresses/lookup}"
+                                               hx-trigger="keyup[target.value.trim().length >= 3] changed delay:500ms"
+                                               hx-target="#address-lookup-results" hx-swap="outerHTML"
+                                               hx-indicator=".address-lookup-indicator">
+                                        <span class="address-lookup-indicator htmx-indicator">
+                                           <span class="loading loading-dots loading-xs"></span>
+                                        </span>
+                                        <svg th:replace="~{/svg/icons::search-icon}"></svg>
+                                    </label>
+                                    <template id="address-lookup-results" class="dropdown-content menu">
+                                    </template>
+                                </div>
+                            </div>
+                            <div th:replace="~{/address/fragments/address-fields}"></div>
+                        </div>
+
+                        <div class="col-span-2 sm:col-span-1">
+                            <button type="submit" class="btn btn-primary" hx-target="#forms" hx-swap="outerHTML" hx-select="#forms">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script-content">
+
+</th:block>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!--/*@thymesVar id="location" type="debug.address.NominatimAPIResponseDTO"*/-->
+<ul id="address-lookup-results" tabindex="0"
+    class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-full"
+    th:fragment="address-lookup">
+    <li th:each="location : ${locations}" th:object="${location}">
+
+        <button type="button"
+                th:hx-post="@{/addresses/select}"
+                hx-target="#address-fields"
+                hx-swap="outerHTML"
+                hx-trigger="click"
+                th:text="*{displayName}"
+                hx:vals="${ {buildingName:location.address.buildingName,houseNumber:location.address.houseNumber,road:location.address.road,city:location.address.city, postalCode:location.address.postalCode, country:location.address.country} }"
+                hx-on::after-request="if(event.detail.successful) document.getElementById('address-lookup-search').value = ''">
+        </button>
+
+<!--        <form th:hx-post="@{/addresses/select}" hx-target="#address-fields" hx-swap="outerHTML"-->
+<!--              hx-trigger="click"-->
+<!--              hx-on::after-request="if(event.detail.successful) document.getElementById('address-lookup-search').value = ''">-->
+<!--            <input type="hidden" name="buildingName" th:value="*{address.buildingName}"/>-->
+<!--            <input type="hidden" name="houseNumber" th:value="*{address.houseNumber}"/>-->
+<!--            <input type="hidden" name="road" th:value="*{address.road}"/>-->
+<!--            <input type="hidden" name="postalCode" th:value="*{address.postalCode}"/>-->
+<!--            <input type="hidden" name="city" th:value="*{address.city}"/>-->
+<!--            <input type="hidden" name="country" th:value="*{address.country}"/>-->
+<!--            <p th:text="*{displayName}"></p>-->
+<!--        </form>-->
+    </li>
+</ul>
