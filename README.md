@@ -1,5 +1,7 @@
 ## This is a reproducer to debug how hx:vals in HTMX Spring Boot package renders null values.
 
+For the relevant issue: [https://github.com/wimdeblauwe/htmx-spring-boot/issues/164](https://github.com/wimdeblauwe/htmx-spring-boot/issues/164)
+
 - Open Street Map results is limited to the UK.
 - For a residental address, search for `Number 10`.
 - For a non-residential address, search for `Chatham House`, choose the one with `Chatham House (The Royal Institute of International Affairs)`.
